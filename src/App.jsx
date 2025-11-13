@@ -1,7 +1,11 @@
+import Body from "./components/Body";
+import Head from "./components/Head";
+
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold">My Youtube</h1>
+      <Head />
+      <Body />
     </>
   );
 }
