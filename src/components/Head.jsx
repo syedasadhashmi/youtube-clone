@@ -1,12 +1,20 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 
 const Head = () => {
+  const dispatch = useDispatch();
+
+  const toggleHandler = () => {
+    dispatch(toggleMenu());
+  };
+
   return (
     <div className="grid grid-flow-col p-4  shadow-lg">
       <div className="col-span-1 flex ">
-        <button>
+        <button onClick={() => toggleHandler()} className="cursor-pointer">
           <GiHamburgerMenu size={22} />
         </button>
         <img
@@ -21,7 +29,7 @@ const Head = () => {
           placeholder="Search"
           className="w-1/2 rounded-l-full  border border-gray-400 p-1 px-2 "
         />
-        <button className="rounded-r-full border border-gray-400 p-1">
+        <button className="rounded-r-full border border-gray-400 p-1 px-2 bg-gray-100">
           <IoSearch size={20} />
         </button>
       </div>
