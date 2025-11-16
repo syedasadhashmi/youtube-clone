@@ -3,6 +3,7 @@ import { FaHome, FaMusic } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
 import { SiYoutubeshorts } from "react-icons/si";
 import { useSelector } from "react-redux";
+import { Link } from "react-router";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
@@ -13,8 +14,10 @@ const Sidebar = () => {
     <div className="p-4 shadow-2xl w-40">
       <ul>
         <h1 className="font-bold mt-4">Settings</h1>
-        <li className="flex  text-sm mt-2">
-          <FaHome className="self-center mr-2" size={20} /> Home
+        <li className="  text-sm mt-2">
+          <Link to={"/"} className="flex">
+            <FaHome className="self-center mr-2" size={20} /> Home
+          </Link>
         </li>
         <li className="flex  text-sm mt-2">
           <MdLiveTv className="self-center mr-2" size={20} />

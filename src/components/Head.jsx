@@ -17,6 +17,7 @@ const Head = () => {
         <button onClick={() => toggleHandler()} className="cursor-pointer">
           <GiHamburgerMenu size={22} />
         </button>
+
         <img
           className="w-24 ml-2"
           alt="youtube-logo"
