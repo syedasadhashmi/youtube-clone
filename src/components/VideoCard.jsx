@@ -15,4 +15,16 @@ const VideoCard = ({ info }) => {
   );
 };
 
+export const AdCard = ({ info }) => {
+  // higher order component took a component and return the component
+  return (
+    <div className=" relative">
+      <VideoCard info={info} />
+      <div className="flex absolute bottom-12 right-5">
+        <p className="font-bold">Ad</p>
+      </div>
+    </div>
+  );
+};
+
 export default VideoCard;
