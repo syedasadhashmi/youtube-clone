@@ -29,13 +29,13 @@ const Head = () => {
           placeholder="Search"
           className="w-1/2 rounded-l-full  border border-gray-400 p-1 px-2 "
         />
-        <button className="rounded-r-full border border-gray-400 p-1 px-2 bg-gray-100">
+        <button className="rounded-r-full border border-gray-400 p-1 px-2 bg-gray-100 cursor-pointer">
           <IoSearch size={20} />
         </button>
       </div>
       <div className="col-span-1 flex">
-        <button>
-          <FaUserCircle size={20} />
+        <button className="cursor-pointer">
+          <FaUserCircle size={26} />
         </button>
       </div>
     </div>
