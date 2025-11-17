@@ -1,16 +1,18 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoSearch } from "react-icons/io5";
 import { FaUserCircle } from "react-icons/fa";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Head = () => {
   const [searchInput, setSearchInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const dispatch = useDispatch();
+  const searchCache = useSelector((store) => store.search);
 
   useEffect(() => {
     const getSearchSuggestions = async () => {
@@ -19,11 +21,18 @@ const Head = () => {
         const res = await fetch(YOUTUBE_SEARCH_API + searchInput);
         const json = await res.json();
         setSuggestions(json[1]);
+        dispatch(cacheResults({ [searchInput]: json[1] }));
       } catch (err) {
         console.log(err);
       }
     };
-    const timer = setTimeout(() => getSearchSuggestions(), 200);
+    const timer = setTimeout(() => {
+      if (searchCache[searchInput]) {
+        setSuggestions(searchCache[searchInput]);
+      } else {
+        getSearchSuggestions();
+      }
+    }, 200);
     return () => {
       clearTimeout(timer);
     };
