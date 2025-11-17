@@ -6,7 +6,9 @@ const searchSlice = createSlice({
   reducers: {
     cacheResults: (state, action) => {
       // It's used to merge two objects
-      state = Object.assign(state, action.payload);
+      //   state = Object.assign(state, action.payload);
+      //   state = { ...state, ...action.payload };
+      return { ...action.payload, ...state };
     },
   },
 });
