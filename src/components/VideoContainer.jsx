@@ -6,6 +6,12 @@ import { Link } from "react-router";
 const VideoContainer = () => {
   const [videos, setVideos] = useState();
 
+  const contianerEnd = addEventListener("scrollend", (event) => {
+    console.log(event);
+    console.log("End of scroll reached");
+  });
+  console.log(contianerEnd);
+
   useEffect(() => {
     const getVideos = async () => {
       try {
