@@ -24,8 +24,10 @@ const Sidebar = () => {
           Live
         </li>
         <li className="flex  text-sm mt-2">
-          <SiYoutubeshorts className="self-center mr-2" size={20} />
-          Shorts
+          <Link to={"/demo"} className="flex">
+            <SiYoutubeshorts className="self-center mr-2" size={20} />
+            Demo
+          </Link>
         </li>
         <li className="flex  text-sm mt-2">
           <FaMusic className="self-center mr-2" size={20} /> Music
